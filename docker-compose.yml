@@ -1,7 +1,7 @@
 version: "3"
 services:
-  golang:
-    image: "nextdenv/golang-1.15.0:latest"
+  node:
+    image: "nextdenv/node-14.8.0:latest"
     ports: 
     # export containers ssh port, for vscode connection
     - "20580:22"
