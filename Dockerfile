@@ -1,14 +1,8 @@
-FROM node:14.8.0
+FROM codercom/code-server:4.13.0-bullseye
 
-# install sshd
-RUN apt update && apt upgrade -y &&  \
-    apt install -y openssh-server && \
-    mkdir -p /run/sshd /code
+USER root
 
-VOLUME ["/code", "/root/.ssh"]
-
-WORKDIR /code
-
-EXPOSE 22
-
-CMD [ "/usr/sbin/sshd", "-D" ]
+RUN curl -sL https://deb.nodesource.com/setup_14.x -o /tmp/nodesource_setup.sh
+RUN bash /tmp/nodesource_setup.sh
+RUN apt install nodejs
+RUN node -v
