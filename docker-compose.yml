@@ -1,10 +1,13 @@
 version: "3"
 services:
   node:
-    image: "nextdenv/node-14.8.0:latest"
+    image: "nextdenv/node-14.x:latest"
     ports: 
     # export containers ssh port, for vscode connection
     - "8080:8080"
     volumes: 
     # volume host code directory to container, keep from losing code when container recreated.
     - "/home/code/node:/home/coder"
+    # change the host path to your own filepath
+    - "/root/code/devops/next-denv/node/config:/root/.config/code-server"
+    - "/root/code/devops/next-denv/node/user-data:/root/.local/share/code-server"
