@@ -1,7 +1,7 @@
 version: "3"
 services:
   node:
-    image: "nextdenv/node-14.x:latest"
+    image: "nextdenv/node:14.x-latest"
     ports: 
     # export containers ssh port, for vscode connection
     - "8080:8080"

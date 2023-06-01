@@ -19,8 +19,8 @@ jobs:
     - name: Build the Docker image
       run: |
         export BRANCH=$(echo ${GITHUB_REF#refs/heads/})
-        export IMAGE=nextdenv/node-$BRANCH:$(date +%Y%m%d)-$(echo ${GITHUB_SHA:0:7})
-        export LATEST_IMAGE=nextdenv/node-$BRANCH:latest
+        export IMAGE=nextdenv/node:$BRANCH-$(date +%Y%m%d)-$(echo ${GITHUB_SHA:0:7})
+        export LATEST_IMAGE=nextdenv/node:$BRANCH-latest
         docker build . --file ./Dockerfile --tag $IMAGE
         docker tag $IMAGE $LATEST_IMAGE
         docker push $IMAGE
